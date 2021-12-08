@@ -1,0 +1,287 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS E:\Code Playground\GitHub-Tutorial-2> git status
+fatal: not a git repository (or any of the parent directories): .git
+PS E:\Code Playground\GitHub-Tutorial-2> git init
+Initialized empty Git repository in E:/Code Playground/GitHub-Tutorial-2/.git/
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore
+        index.html
+        style.css
+
+PS E:\Code Playground\GitHub-Tutorial-2> git add .
+PS E:\Code Playground\GitHub-Tutorial-2> git commit -m "Initial samplee webpage"
+[main (root-commit) 46228a7] Initial samplee webpage
+ 3 files changed, 26 insertions(+)
+ create mode 100644 style.css
+PS E:\Code Playground\GitHub-Tutorial-2> git remote add origin https://github.com/sujal7/GitHub-Tutorial-2.git
+Enumerating objects: 5, done.
+Writing objects: 100% (5/5), 635 bytes | 105.00 KiB/s, done.
+Total 5 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/sujal7/GitHub-Tutorial-2.git
+ * [new branch]      main -> main
+PS E:\Code Playground\GitHub-Tutorial-2> git status
+
+nothing to commit, working tree clean
+PS E:\Code Playground\GitHub-Tutorial-2> git branch dev
+  dev
+PS E:\Code Playground\GitHub-Tutorial-2> git checkout dev
+Switched to branch 'dev'
+PS E:\Code Playground\GitHub-Tutorial-2> git branch addition
+PS E:\Code Playground\GitHub-Tutorial-2> git branch multiplication
+PS E:\Code Playground\GitHub-Tutorial-2> git branch
+* dev
+  main
+  multiplication
+PS E:\Code Playground\GitHub-Tutorial-2> git checkout addition
+Switched to branch 'addition'
+PS E:\Code Playground\GitHub-Tutorial-2> git add .
+PS E:\Code Playground\GitHub-Tutorial-2> git commit -m "addition: feature of addition"
+[addition 1d64788] addition: feature of addition
+ 1 file changed, 3 insertions(+)
+ create mode 100644 add.js
+PS E:\Code Playground\GitHub-Tutorial-2> git checkout dev
+Switched to branch 'dev'
+PS E:\Code Playground\GitHub-Tutorial-2> git merge addition
+Updating 46228a7..1d64788
+ add.js | 3 +++
+ create mode 100644 add.js
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (8/8), 904 bytes | 226.00 KiB/s, done.
+Total 8 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), done.
+remote:
+remote: Create a pull request for 'dev' on GitHub by visiting:
+remote:      https://github.com/sujal7/GitHub-Tutorial-2/pull/new/dev
+To https://github.com/sujal7/GitHub-Tutorial-2.git
+Branch 'dev' set up to track remote branch 'dev' from 'origin'.
+error: pathspec 'multiply' did not match any file(s) known to git
+PS E:\Code Playground\GitHub-Tutorial-2> git checkout multiplication
+Switched to branch 'multiplication'
+PS E:\Code Playground\GitHub-Tutorial-2> git rebase
+There is no tracking information for the current branch.
+Please specify which branch you want to rebase against.
+    git rebase '<branch>'
+
+If you wish to set tracking information for this branch you can do so with:
+
+    git branch --set-upstream-to=<remote>/<branch> multiplication
+PS E:\Code Playground\GitHub-Tutorial-2> git rebase dev
+PS E:\Code Playground\GitHub-Tutorial-2> git stash
+No local changes to save
+PS E:\Code Playground\GitHub-Tutorial-2> git status
+On branch multiplication
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+nothing added to commit but untracked files present (use "git add" to track)
+PS E:\Code Playground\GitHub-Tutorial-2> git add .
+On branch multiplication
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   multiply.js
+
+PS E:\Code Playground\GitHub-Tutorial-2> git stash
+Saved working directory and index state WIP on multiplication: 1d64788 addition: feature of addition
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+
+Dropped refs/stash@{0} (7efeb9bcf4d37df350806e617a4b73cf0fd534b8)
+PS E:\Code Playground\GitHub-Tutorial-2> git commit -m "multiplication: added multiply feature"
+[multiplication b467aa8] multiplication: added multiply feature
+ 1 file changed, 3 insertions(+)
+ create mode 100644 multiply.js
+PS E:\Code Playground\GitHub-Tutorial-2> git status
+On branch multiplication
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   multiply.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+PS E:\Code Playground\GitHub-Tutorial-2> git add .
+PS E:\Code Playground\GitHub-Tutorial-2> git commit -m "multiplication: added new line"
+[multiplication f3662d7] multiplication: added new line
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+PS E:\Code Playground\GitHub-Tutorial-2> git log
+Date:   Wed Dec 8 20:34:37 2021 +0545
+
+    multiplication: added new line
+
+commit b467aa83d077a9ec15817b13398cc3aa2c03e2e6
+Author: Sujal Duwa <sujalduwa@gmail.com>
+Date:   Wed Dec 8 20:33:31 2021 +0545
+
+    multiplication: added multiply feature
+
+commit 1d64788288b6f293a18214e12d309eb45fc70eb6 (origin/dev, dev, addition)
+Author: Sujal Duwa <sujalduwa@gmail.com>
+Date:   Wed Dec 8 20:26:43 2021 +0545
+
+    addition: feature of addition
+
+commit 46228a74c8ebfdbc5da7e56e8bbaf7f32c282e03 (origin/main, main)
+PS E:\Code Playground\GitHub-Tutorial-2> git log
+commit b467aa83d077a9ec15817b13398cc3aa2c03e2e6 (HEAD -> multiplication)
+Author: Sujal Duwa <sujalduwa@gmail.com>
+Date:   Wed Dec 8 20:33:31 2021 +0545
+
+
+commit 1d64788288b6f293a18214e12d309eb45fc70eb6 (origin/dev, dev, addition)
+Author: Sujal Duwa <sujalduwa@gmail.com>
+Date:   Wed Dec 8 20:26:43 2021 +0545
+
+    addition: feature of addition
+
+commit 46228a74c8ebfdbc5da7e56e8bbaf7f32c282e03 (origin/main, main)
+Author: Sujal Duwa <sujalduwa@gmail.com>
+Date:   Wed Dec 8 20:12:17 2021 +0545
+
+    Initial samplee webpage
+PS E:\Code Playground\GitHub-Tutorial-2> git status
+On branch multiplication
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   multiply.js
+PS E:\Code Playground\GitHub-Tutorial-2> git log
+commit b467aa83d077a9ec15817b13398cc3aa2c03e2e6 (HEAD -> multiplication)
+Author: Sujal Duwa <sujalduwa@gmail.com>
+Date:   Wed Dec 8 20:33:31 2021 +0545
+    multiplication: added multiply feature
+
+commit 1d64788288b6f293a18214e12d309eb45fc70eb6 (origin/dev, dev, addition)
+Author: Sujal Duwa <sujalduwa@gmail.com>
+Date:   Wed Dec 8 20:26:43 2021 +0545
+
+commit 46228a74c8ebfdbc5da7e56e8bbaf7f32c282e03 (origin/main, main)
+Author: Sujal Duwa <sujalduwa@gmail.com>
+Date:   Wed Dec 8 20:12:17 2021 +0545
+
+error: Your local changes to the following files would be overwritten by checkout:
+        multiply.js
+Please commit your changes or stash them before you switch branches.
+Aborting
+PS E:\Code Playground\GitHub-Tutorial-2> git status
+On branch multiplication
+Changes to be committed:
+        modified:   multiply.js
+
+PS E:\Code Playground\GitHub-Tutorial-2> git restore .
+PS E:\Code Playground\GitHub-Tutorial-2> git status
+Changes to be committed:
+        modified:   multiply.js
+
+PS E:\Code Playground\GitHub-Tutorial-2> git restore --staged .
+PS E:\Code Playground\GitHub-Tutorial-2> git status
+On branch multiplication
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   multiply.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+PS E:\Code Playground\GitHub-Tutorial-2> git checkout dev
+error: Your local changes to the following files would be overwritten by checkout:
+        multiply.js
+Please commit your changes or stash them before you switch branches.
+Aborting
+PS E:\Code Playground\GitHub-Tutorial-2> git reset --hard
+PS E:\Code Playground\GitHub-Tutorial-2> git log
+commit b467aa83d077a9ec15817b13398cc3aa2c03e2e6 (HEAD -> multiplication)
+Date:   Wed Dec 8 20:33:31 2021 +0545
+
+    multiplication: added multiply feature
+
+commit 1d64788288b6f293a18214e12d309eb45fc70eb6 (origin/dev, dev, addition)
+Date:   Wed Dec 8 20:26:43 2021 +0545
+
+    addition: feature of addition
+
+commit 46228a74c8ebfdbc5da7e56e8bbaf7f32c282e03 (origin/main, main)
+Author: Sujal Duwa <sujalduwa@gmail.com>
+Date:   Wed Dec 8 20:12:17 2021 +0545
+
+    Initial samplee webpage
+PS E:\Code Playground\GitHub-Tutorial-2> git checkout dev
+Switched to branch 'dev'
+Your branch is up to date with 'origin/dev'.
+PS E:\Code Playground\GitHub-Tutorial-2> git merge multiplication
+Updating 1d64788..b467aa8
+Fast-forward
+ multiply.js | 3 +++
+ 1 file changed, 3 insertions(+)
+PS E:\Code Playground\GitHub-Tutorial-2> git log
+Author: Sujal Duwa <sujalduwa@gmail.com>
+Date:   Wed Dec 8 20:33:31 2021 +0545
+
+    multiplication: added multiply feature
+
+commit 1d64788288b6f293a18214e12d309eb45fc70eb6 (origin/dev, addition)
+Author: Sujal Duwa <sujalduwa@gmail.com>
+Date:   Wed Dec 8 20:26:43 2021 +0545
+    addition: feature of addition
+commit 46228a74c8ebfdbc5da7e56e8bbaf7f32c282e03 (origin/main, main)
+Author: Sujal Duwa <sujalduwa@gmail.com>
+Date:   Wed Dec 8 20:12:17 2021 +0545
+
+    Initial samplee webpage
+PS E:\Code Playground\GitHub-Tutorial-2> git checkout addition
+Switched to branch 'addition'
+PS E:\Code Playground\GitHub-Tutorial-2> git push -u origin addition
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+remote:
+remote: Create a pull request for 'addition' on GitHub by visiting:
+remote:      https://github.com/sujal7/GitHub-Tutorial-2/pull/new/addition
+remote:
+To https://github.com/sujal7/GitHub-Tutorial-2.git
+Branch 'addition' set up to track remote branch 'addition' from 'origin'.
+PS E:\Code Playground\GitHub-Tutorial-2> git checkout multiplication
+Switched to branch 'multiplication'
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 4 threads
+Writing objects: 100% (3/3), 336 bytes | 112.00 KiB/s, done.
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote:
+remote:      https://github.com/sujal7/GitHub-Tutorial-2/pull/new/multiplication
+remote:
+ * [new branch]      multiplication -> multiplication
+PS E:\Code Playground\GitHub-Tutorial-2> git checkout dev
+Your branch is ahead of 'origin/dev' by 1 commit.
+  (use "git push" to publish your local commits)
+PS E:\Code Playground\GitHub-Tutorial-2> git push
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/sujal7/GitHub-Tutorial-2.git
+   1d64788..b467aa8  dev -> dev
+PS E:\Code Playground\GitHub-Tutorial-2> git branch main
+fatal: A branch named 'main' already exists.
+PS E:\Code Playground\GitHub-Tutorial-2> git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+PS E:\Code Playground\GitHub-Tutorial-2> git checkout addition
+Switched to branch 'addition'
+Your branch is up to date with 'origin/addition'.
+PS E:\Code Playground\GitHub-Tutorial-2> git stash
+No local changes to save
+PS E:\Code Playground\GitHub-Tutorial-2> git stash
+Saved working directory and index state WIP on addition: 1d64788 addition: feature of addition
+PS E:\Code Playground\GitHub-Tutorial-2> git stash pop
+On branch addition
+Your branch is up to date with 'origin/addition'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   add.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (1a2dbe1b96a51283dd7705e3c0778d06e920606b)
+PS E:\Code Playground\GitHub-Tutorial-2> 
